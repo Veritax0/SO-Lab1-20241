@@ -40,21 +40,21 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    // Leer todas las líneas en el arreglo, eliminando el '\n' al final
+    // Lee y guarda las lineas sin el salto de linea
     while (fgets(lines[line_count], sizeof(lines[line_count]), input) != NULL) {
         //lines[line_count][strcspn(lines[line_count], "\n")] = '\0'; // Elimina el '\n'
         line_count++;
     }
 
-    // Escribir las líneas en orden inverso
+    // Escribe las lineas en orden inverso
     for (int i = line_count - 1; i >= 0; i--) {
         fputs(lines[i], output);
-        if (i > 0) { // Agrega una nueva línea al final de cada línea, excepto la última
+        if (i > 0) { // Agrega una nueva linea cada vez, excepto la ultima
             fputs("\n", output);
         }
     }
 
-    // Cerrar los archivos
+    // Cerrar archivos
     fclose(input);
     if (output != stdout) {
         fclose(output);
