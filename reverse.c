@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
 
     // Leer todas las líneas en el arreglo, eliminando el '\n' al final
     while (fgets(lines[line_count], sizeof(lines[line_count]), input) != NULL) {
-        lines[line_count][strcspn(lines[line_count], "\n")] = '\0'; // Elimina el '\n'
+        //lines[line_count][strcspn(lines[line_count], "\n")] = '\0'; // Elimina el '\n'
         line_count++;
     }
 
