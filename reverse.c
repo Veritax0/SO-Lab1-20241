@@ -1,3 +1,9 @@
+/*  
+    Integrantes:
+    Juan Manuel Vera Osorio  CC 1000416823
+    Valentina Cadena Zapata  CC 1000099120
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -42,7 +48,7 @@ int main(int argc, char *argv[]) {
 
     // Lee y guarda las lineas sin el salto de linea
     while (fgets(lines[line_count], sizeof(lines[line_count]), input) != NULL) {
-        //lines[line_count][strcspn(lines[line_count], "\n")] = '\0'; // Elimina el '\n'
+        lines[line_count][strcspn(lines[line_count], "\n")] = '\0'; // Elimina el '\n'
         line_count++;
     }
 
