@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
 
     // Manejar los diferentes casos de argumentos
     if (argc > 3) {
-        fprintf(stderr, "Uso: %s [archivo_entrada] [archivo_salida]\n", argv[0]);
+        fprintf(stderr, "usage: reverse <input> <output>\n", argv[0]);
         return 1;
     }
 
@@ -28,22 +28,26 @@ int main(int argc, char *argv[]) {
     } else if (argc == 2) {
         input = fopen(argv[1], "r");
         if (input == NULL) {
-            perror("Error al abrir el archivo de entrada");
+            fprintf(stderr, "reverse: cannot open file '/no/such/file.txt'\n", argv[0]);
             return 1;
         }
         output = stdout;
     } else {
+        if (strcmp(argv[1], argv[2]) == 0){
+            fprintf(stderr, "reverse: input and output file must differ\n", argv[0]);
+            return 1;
+        }
         input = fopen(argv[1], "r");
         if (input == NULL) {
-            perror("Error al abrir el archivo de entrada");
+            fprintf(stderr, "reverse: cannot open file '/no/such/file.txt'\n", argv[0]);
             return 1;
         }
         output = fopen(argv[2], "w");
         if (output == NULL) {
-            perror("Error al abrir el archivo de salida");
+            fprintf(stderr, "reverse: cannot open file '/no/such/file.txt'\n", argv[0]);
             fclose(input);
             return 1;
-        }
+        }        
     }
 
     // Lee y guarda las lineas sin el salto de linea
